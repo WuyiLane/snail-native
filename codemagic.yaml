@@ -36,3 +36,27 @@ workflows:
     artifacts:
       - build/app/outputs/dn-apk/*.apk
       - build/app/outputs/apk/release/*.apk
+
+  ios-unsigned:
+    name: iOS 未签名包
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    environment:
+      groups:
+        - dartnative
+    scripts:
+      - name: 安装 DartNative SDK
+        script: |
+          curl -fsSL https://cdn.dartnative.com/install.sh | sh
+          echo "PATH=$HOME/zero/bin:$PATH" >> $CM_ENV
+      - name: 环境检查
+        script: |
+          dn --version
+          dn doctor || true
+      - name: 安装依赖
+        script: dn pub get
+      - name: 编译 iOS 未签名包
+        script: dn build ios --release --no-codesign --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY
+    artifacts:
+      - build/ios/iphoneos/**/*.app
+      - /tmp/xcodebuild_logs/*.log
