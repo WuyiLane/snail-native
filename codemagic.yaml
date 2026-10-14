@@ -1,0 +1,32 @@
+# Codemagic 配置：DartNative 版 Android APK。
+# 不是 Flutter 项目，Codemagic 新建应用时项目类型选「Other」，构建完全按这个文件走。
+# 授权：在 Codemagic 的 Environment variables 里建分组 dartnative，加密变量 DN_LICENSE_KEY = dnk_...（不要写进仓库）。
+workflows:
+  android-apk:
+    name: Android APK
+    # 免费套餐只给 mac_mini_m2
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    environment:
+      groups:
+        - dartnative
+    scripts:
+      # 官方安装脚本：解压到 ~/zero，首次运行会下载几百 MB 的引擎
+      - name: 安装 DartNative SDK
+        script: |
+          curl -fsSL https://cdn.dartnative.com/install.sh | sh
+          echo "PATH=$HOME/zero/bin:$PATH" >> $CM_ENV
+      - name: Android SDK 36
+        script: yes | sdkmanager "platforms;android-36" "build-tools;36.0.0" "platform-tools"
+      - name: 环境检查
+        script: |
+          dn --version
+          dn doctor || true
+      - name: 依赖
+        script: dn pub get
+      # release 沿用 debug 签名（android/app/build.gradle.kts），出来的 apk 直接能装
+      - name: 编译 release apk
+        script: dn build apk --release --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY
+    artifacts:
+      - build/app/outputs/dn-apk/*.apk
+      - build/app/outputs/apk/release/*.apk
