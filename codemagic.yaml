@@ -15,9 +15,15 @@ workflows:
       - name: 安装 DartNative SDK
         script: |
           curl -fsSL https://cdn.dartnative.com/install.sh | sh
+          ls "$HOME/zero/bin"
           echo "PATH=$HOME/zero/bin:$PATH" >> $CM_ENV
       - name: Android SDK 36
-        script: yes | sdkmanager "platforms;android-36" "build-tools;36.0.0" "platform-tools"
+        # sdkmanager 不在 PATH 里，用 Android SDK 目录下的完整路径
+        script: |
+          SDK="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          SDKM=$(ls "$SDK"/cmdline-tools/*/bin/sdkmanager | head -1)
+          echo "使用 $SDKM"
+          yes | "$SDKM" "platforms;android-36" "build-tools;36.0.0" "platform-tools" > /dev/null
       - name: 环境检查
         script: |
           dn --version
