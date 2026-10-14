@@ -98,7 +98,7 @@ class _EditorPageState extends State<EditorPage> {
                         color: AppColors.inputBg,
                         borderRadius: BorderRadius.circular(AppRadius.md),
                       ),
-                      child: const Icon(Icons.add, color: AppColors.textHint, size: 30),
+                      child: const Icon(AppIcons.add, color: AppColors.textHint, size: 30),
                     ),
                   );
                 }
@@ -145,7 +145,7 @@ class _EditorPageState extends State<EditorPage> {
             ),
           ),
           const SizedBox(height: 12),
-          Wrap(spacing: 8, children: [_chip(Icons.place_outlined, '添加地点'), _chip(Icons.tag, '添加话题')]),
+          Wrap(spacing: 8, children: [_chip(AppIcons.place_outlined, '添加地点'), _chip(AppIcons.tag, '添加话题')]),
         ],
       ),
     );

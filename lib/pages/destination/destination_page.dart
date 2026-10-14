@@ -62,13 +62,13 @@ class _DestinationPageState extends State<DestinationPage> {
             child: Row(
               children: [
                 RoundIconButton(
-                  icon: Icons.arrow_back_ios_new,
+                  icon: AppIcons.arrow_back_ios_new,
                   background: Colors.transparent,
                   onTap: () => Navigator.pop(context),
                 ),
                 const Spacer(),
                 RoundIconButton(
-                  icon: Icons.search,
+                  icon: AppIcons.search,
                   background: Colors.transparent,
                   onTap: () => push(context, const SearchPage()),
                 ),

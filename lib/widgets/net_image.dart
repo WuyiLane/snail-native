@@ -37,7 +37,7 @@ class NetImage extends StatelessWidget {
             fit: fit,
             fadeInDuration: const Duration(milliseconds: 250),
             placeholder: _placeholder(),
-            errorWidget: _placeholder(child: const Icon(Icons.landscape_outlined, color: AppColors.textHint)),
+            errorWidget: _placeholder(child: const Icon(AppIcons.landscape_outlined, color: AppColors.textHint)),
           )
         // DartNative 的 Image.file 没有失败兜底参数
         : Image.file(

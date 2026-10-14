@@ -270,7 +270,7 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(color: AppColors.inputBg, borderRadius: BorderRadius.circular(23)),
             child: const Row(
               children: [
-                Icon(Icons.search, color: AppColors.textSecondary),
+                Icon(AppIcons.search, color: AppColors.textSecondary),
                 SizedBox(width: 8),
                 Text('搜目的地、攻略、游记', style: TextStyle(color: AppColors.textHint, fontSize: 14)),
               ],
@@ -345,7 +345,7 @@ class _HomePageState extends State<HomePage> {
     mainAxisSize: MainAxisSize.min,
     children: [
       Text('更多', style: AppText.caption),
-      Icon(Icons.chevron_right, size: 16, color: AppColors.textSecondary),
+      Icon(AppIcons.chevron_right, size: 16, color: AppColors.textSecondary),
     ],
   );
 }

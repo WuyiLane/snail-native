@@ -264,7 +264,7 @@ class _CameraCell extends StatelessWidget {
           // DartNative 的 Container 给了宽高不会自动居中子组件
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8)),
-          child: const Icon(Icons.photo_camera_outlined, size: 24, color: AppColors.textPrimary),
+          child: const Icon(AppIcons.photo_camera_outlined, size: 24, color: AppColors.textPrimary),
         ),
       ),
     );
@@ -347,7 +347,7 @@ class _PhotoCell extends StatelessWidget {
               ],
             ),
           ),
-          const Positioned(left: 6, bottom: 6, child: Icon(Icons.crop_square_rounded, size: 14, color: Colors.white70)),
+          const Positioned(left: 6, bottom: 6, child: Icon(AppIcons.crop_square_rounded, size: 14, color: Colors.white70)),
         ],
       ),
     );
@@ -393,7 +393,7 @@ class _NoPermission extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.photo_library_outlined, size: 48, color: AppColors.textHint),
+          const Icon(AppIcons.photo_library_outlined, size: 48, color: AppColors.textHint),
           const SizedBox(height: 12),
           const Text('需要相册权限才能选图', style: AppText.caption),
           const SizedBox(height: 16),

@@ -151,7 +151,7 @@ class _LikeButtonState extends State<LikeButton> with SingleTickerProviderStateM
             animation: _ctrl,
             builder: (_, _) => Transform.scale(
               scale: _scale,
-              child: Icon(_liked ? Icons.thumb_up : Icons.thumb_up_outlined, size: widget.size, color: color),
+              child: Icon(_liked ? AppIcons.thumb_up : AppIcons.thumb_up_outlined, size: widget.size, color: color),
             ),
           ),
           const SizedBox(width: 4),

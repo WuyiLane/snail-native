@@ -70,13 +70,13 @@ class _CityPageState extends State<CityPage> {
             child: Row(
               children: [
                 RoundIconButton(
-                  icon: Icons.arrow_back_ios_new,
+                  icon: AppIcons.arrow_back_ios_new,
                   background: Colors.transparent,
                   onTap: () => Navigator.pop(context),
                 ),
                 const Spacer(),
                 RoundIconButton(
-                  icon: Icons.search,
+                  icon: AppIcons.search,
                   background: Colors.transparent,
                   onTap: () => push(context, const SearchPage()),
                 ),
@@ -293,7 +293,7 @@ class _SpotCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: AppShadow.primary,
                   ),
-                  child: const Icon(Icons.star_rounded, size: 24, color: AppColors.textPrimary),
+                  child: const Icon(AppIcons.star_rounded, size: 24, color: AppColors.textPrimary),
                 ),
               ),
             ],
@@ -316,7 +316,7 @@ class RatingStars extends StatelessWidget {
       children: [
         for (var i = 0; i < 5; i++)
           Icon(
-            i < rating.round() ? Icons.star_rounded : Icons.star_outline_rounded,
+            i < rating.round() ? AppIcons.star_rounded : AppIcons.star_outline_rounded,
             size: 14,
             color: AppColors.primaryDark,
           ),

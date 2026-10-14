@@ -88,7 +88,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           _TabTitle('关注', selected: _tab == 1, onTap: () => _goTo(1)),
           const Spacer(),
           RoundIconButton(
-            icon: Icons.search,
+            icon: AppIcons.search,
             background: Colors.transparent,
             size: 40,
             onTap: () => push(context, const SearchPage()),
@@ -134,11 +134,11 @@ class _DiscoverBody extends StatelessWidget {
   final double topPadding;
 
   static const _categories = [
-    ('攻略', Icons.menu_book_rounded, Color(0xFFFFC107)),
-    ('话题', Icons.tag, Color(0xFF2F80ED)),
-    ('视频', Icons.play_circle_fill_rounded, Color(0xFFFF4D4F)),
-    ('问答', Icons.help_rounded, Color(0xFF2BB673)),
-    ('游记', Icons.auto_stories_rounded, Color(0xFF9B51E0)),
+    ('攻略', AppIcons.menu_book_rounded, Color(0xFFFFC107)),
+    ('话题', AppIcons.tag, Color(0xFF2F80ED)),
+    ('视频', AppIcons.play_circle_fill_rounded, Color(0xFFFF4D4F)),
+    ('问答', AppIcons.help_rounded, Color(0xFF2BB673)),
+    ('游记', AppIcons.auto_stories_rounded, Color(0xFF9B51E0)),
   ];
 
   void _open(BuildContext context, int i) {
@@ -201,7 +201,7 @@ class _DiscoverBody extends StatelessWidget {
         ),
         SectionHeader(
           '网友热推',
-          trailing: const Icon(Icons.filter_list_rounded, size: 20, color: AppColors.textSecondary),
+          trailing: const Icon(AppIcons.filter_list_rounded, size: 20, color: AppColors.textSecondary),
         ),
         Waterfall(Mock.posts, heroScope: 'discover'),
       ],

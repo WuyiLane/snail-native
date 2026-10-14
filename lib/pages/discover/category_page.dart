@@ -25,7 +25,7 @@ class CategoryPage extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+          icon: const Icon(AppIcons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
           onPressed: () => Navigator.pop(context),
         ),
         title: textHero(

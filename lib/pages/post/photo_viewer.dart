@@ -117,7 +117,7 @@ class _PhotoViewerState extends State<PhotoViewer> {
               children: [
                 IconButton(
                   onPressed: _close,
-                  icon: const Icon(Icons.close, color: Colors.white, size: 26),
+                  icon: const Icon(AppIcons.close, color: Colors.white, size: 26),
                 ),
                 const Spacer(),
                 Container(

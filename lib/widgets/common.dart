@@ -198,7 +198,7 @@ class LocationTag extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.place, size: 12, color: Colors.white),
+          const Icon(AppIcons.place, size: 12, color: Colors.white),
           const SizedBox(width: 2),
           Text(text, style: const TextStyle(fontSize: 11, color: Colors.white)),
         ],
@@ -321,7 +321,7 @@ class FrostedBar extends StatelessWidget {
                   child: const SizedBox(
                     width: 44,
                     height: barHeight,
-                    child: Center(child: Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary)),
+                    child: Center(child: Icon(AppIcons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary)),
                   ),
                 ),
               const Spacer(),

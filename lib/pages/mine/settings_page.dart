@@ -116,7 +116,7 @@ class _SettingsPageState extends State<SettingsPage> {
             // 开关那几行不给箭头
             if (trailing == null && onTap != null) ...[
               const SizedBox(width: 6),
-              const Icon(Icons.chevron_right, size: 18, color: AppColors.textHint),
+              const Icon(AppIcons.chevron_right, size: 18, color: AppColors.textHint),
             ],
           ],
         ),
@@ -177,23 +177,23 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               children: [
                 _group([
-                  _row(Icons.person_outline, '个人资料'),
-                  _row(Icons.lock_outline, '账号与安全'),
-                  _row(Icons.shield_outlined, '隐私设置'),
+                  _row(AppIcons.person_outline, '个人资料'),
+                  _row(AppIcons.lock_outline, '账号与安全'),
+                  _row(AppIcons.shield_outlined, '隐私设置'),
                 ]),
                 const SizedBox(height: 20),
                 // 关注 / 粉丝 / 获赞：数字取的还是 Mock.me
                 _group([
-                  _row(Icons.person_add_alt_outlined, '关注', value: '${Mock.me.follows}'),
-                  _row(Icons.group_outlined, '粉丝', value: '${Mock.me.fans}'),
-                  _row(Icons.thumb_up_outlined, '获赞', value: '${Mock.me.likes}'),
+                  _row(AppIcons.person_add_alt_outlined, '关注', value: '${Mock.me.follows}'),
+                  _row(AppIcons.group_outlined, '粉丝', value: '${Mock.me.fans}'),
+                  _row(AppIcons.thumb_up_outlined, '获赞', value: '${Mock.me.likes}'),
                 ]),
                 const SizedBox(height: 20),
                 _group([
                   // 原版 AdaptiveSwitch(activeColor: 品牌黄) 是开启时轨道变黄。安卓原版是 M3 Switch，开启时滑块取主题的
                   // onPrimary（深色 textPrimary），DartNative 的 activeThumbColor 只在安卓生效；iOS 仍是白色滑块，同原版
                   _row(
-                    Icons.notifications_none,
+                    AppIcons.notifications_none,
                     '推送通知',
                     trailing: Switch(
                       value: _push,
@@ -203,7 +203,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   _row(
-                    Icons.wifi,
+                    AppIcons.wifi,
                     '仅 Wi-Fi 下加载图片',
                     trailing: Switch(
                       value: _wifiOnly,
@@ -212,9 +212,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       onChanged: (v) => setState(() => _wifiOnly = v),
                     ),
                   ),
-                  _row(Icons.cleaning_services_outlined, '清除缓存', value: _cache, onTap: _clearCache),
+                  _row(AppIcons.cleaning_services_outlined, '清除缓存', value: _cache, onTap: _clearCache),
                   _row(
-                    Icons.delete_outline,
+                    AppIcons.delete_outline,
                     '删除我的评论',
                     value: Mock.myComments.isEmpty ? '' : '${Mock.myComments.length} 条',
                     onTap: _clearMyComments,
@@ -222,8 +222,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 ]),
                 const SizedBox(height: 20),
                 _group([
-                  _row(Icons.info_outline, '版本', value: '1.0.0', onTap: null),
-                  _row(Icons.description_outlined, '用户协议与隐私政策'),
+                  _row(AppIcons.info_outline, '版本', value: '1.0.0', onTap: null),
+                  _row(AppIcons.description_outlined, '用户协议与隐私政策'),
                 ]),
               ],
             ),

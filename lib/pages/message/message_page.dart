@@ -23,10 +23,10 @@ class MessagePage extends StatefulWidget {
 
 class _MessagePageState extends State<MessagePage> {
   static const _tabs = [
-    ('通知', Icons.notifications_none_rounded),
-    ('评论', Icons.chat_bubble_outline_rounded),
-    ('私信', Icons.mail_outline_rounded),
-    ('客服', Icons.headset_mic_outlined),
+    ('通知', AppIcons.notifications_none_rounded),
+    ('评论', AppIcons.chat_bubble_outline_rounded),
+    ('私信', AppIcons.mail_outline_rounded),
+    ('客服', AppIcons.headset_mic_outlined),
   ];
 
   int _tab = 2;
@@ -75,7 +75,7 @@ class _MessagePageState extends State<MessagePage> {
             children: [
               const Expanded(child: Text('消息', style: AppText.pageTitle)),
               RoundIconButton(
-                icon: Icons.person_add_alt_outlined,
+                icon: AppIcons.person_add_alt_outlined,
                 background: Colors.transparent,
                 size: 40,
                 onTap: () {},
@@ -320,7 +320,7 @@ class _NoticeRow extends StatelessWidget {
               // DartNative 的 Container 不会自动把子组件居中
               alignment: Alignment.center,
               decoration: const BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
-              child: const Icon(Icons.notifications, size: 20, color: AppColors.textPrimary),
+              child: const Icon(AppIcons.notifications, size: 20, color: AppColors.textPrimary),
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -404,7 +404,7 @@ class _CommentNoticeRow extends StatelessWidget {
               Expanded(
                 child: Text('您于${relativeTime(n.postDate)}发布的随笔', style: const TextStyle(fontSize: 11, color: AppColors.textHint)),
               ),
-              const Icon(Icons.mode_comment_outlined, size: 14, color: AppColors.textSecondary),
+              const Icon(AppIcons.mode_comment_outlined, size: 14, color: AppColors.textSecondary),
               const SizedBox(width: 4),
               const Text('回复', style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
             ],

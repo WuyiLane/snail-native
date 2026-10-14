@@ -364,7 +364,7 @@ class _TopicHeader {
         left: 16,
         top: pull + topPadding + 4,
         child: RoundIconButton(
-          icon: Icons.arrow_back_ios_new,
+          icon: AppIcons.arrow_back_ios_new,
           onTap: onBack,
           // 吸顶后封面没了，白圆底也跟着淡掉只剩箭头
           background: Colors.white.withValues(alpha: 0.85 * (1 - t)),
@@ -469,7 +469,7 @@ class _InfoCard extends StatelessWidget {
                 child: _PopIn(
                   on: starred,
                   child: Icon(
-                    starred ? Icons.star_rounded : Icons.star_outline_rounded,
+                    starred ? AppIcons.star_rounded : AppIcons.star_outline_rounded,
                     size: 26,
                     color: AppColors.textPrimary,
                   ),
@@ -602,7 +602,7 @@ class _PlusButton extends StatelessWidget {
           // DartNative 的 Container 不会自动把子组件居中
           alignment: Alignment.center,
           decoration: const BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
-          child: const Icon(Icons.add, size: 32, color: Colors.white),
+          child: const Icon(AppIcons.add, size: 32, color: Colors.white),
         ),
       ],
     );

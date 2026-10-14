@@ -101,7 +101,7 @@ class _SpotPageState extends State<SpotPage> {
                         boxShadow: AppShadow.primary,
                       ),
                       child: Icon(
-                        _starred ? Icons.star_rounded : Icons.star_outline_rounded,
+                        _starred ? AppIcons.star_rounded : AppIcons.star_outline_rounded,
                         size: 26,
                         color: AppColors.textPrimary,
                       ),
@@ -114,7 +114,7 @@ class _SpotPageState extends State<SpotPage> {
               const SizedBox(height: 14),
               Row(
                 children: [
-                  const Icon(Icons.place, size: 14, color: AppColors.textSecondary),
+                  const Icon(AppIcons.place, size: 14, color: AppColors.textSecondary),
                   const SizedBox(width: 2),
                   Text(spot.name, style: AppText.caption),
                 ],
@@ -214,7 +214,7 @@ class _SpotPageState extends State<SpotPage> {
                 left: (_toolbar - 36) / 2,
                 top: top + (_toolbar - 36) / 2 + pull,
                 child: RoundIconButton(
-                  icon: Icons.arrow_back_ios_new,
+                  icon: AppIcons.arrow_back_ios_new,
                   background: Colors.white.withValues(alpha: 0.85),
                   onTap: () => Navigator.pop(context),
                 ),

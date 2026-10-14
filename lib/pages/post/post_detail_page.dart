@@ -255,7 +255,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             const SizedBox(height: 16),
                             Row(
                               children: [
-                                const Icon(Icons.place, size: 14, color: AppColors.textSecondary),
+                                const Icon(AppIcons.place, size: 14, color: AppColors.textSecondary),
                                 const SizedBox(width: 2),
                                 Expanded(child: Text(post.location, style: AppText.caption)),
                                 Text(
@@ -360,7 +360,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
           child: ValueListenableBuilder<double>(
             valueListenable: _collapse,
             builder: (_, t, _) => RoundIconButton(
-              icon: Icons.arrow_back_ios_new,
+              icon: AppIcons.arrow_back_ios_new,
               onTap: () => Navigator.pop(context),
               // 在图上是白圆底，折叠后底色淡出只剩箭头
               background: Colors.white.withValues(alpha: 0.85 * (1 - t)),
@@ -710,14 +710,14 @@ class _BottomBarState extends State<_BottomBar> {
               GestureDetector(
                 onTap: () => setState(() => _starred = !_starred),
                 child: CountIcon(
-                  _starred ? Icons.star_rounded : Icons.star_outline_rounded,
+                  _starred ? AppIcons.star_rounded : AppIcons.star_outline_rounded,
                   15 + (_starred ? 1 : 0),
                   size: 24,
                   color: _starred ? AppColors.primaryDark : AppColors.textSecondary,
                 ),
               ),
               const SizedBox(width: 16),
-              CountIcon(Icons.ios_share, widget.post.shares, size: 22),
+              CountIcon(AppIcons.ios_share, widget.post.shares, size: 22),
             ],
           ),
         ),

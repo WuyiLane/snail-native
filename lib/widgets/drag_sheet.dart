@@ -116,7 +116,7 @@ class _DragHandle extends StatelessWidget {
                 onTap: onClose,
                 child: const Padding(
                   padding: EdgeInsets.all(8),
-                  child: Icon(Icons.close, size: 20, color: AppColors.textSecondary),
+                  child: Icon(AppIcons.close, size: 20, color: AppColors.textSecondary),
                 ),
               ),
             ],

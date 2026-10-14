@@ -43,7 +43,7 @@ abstract final class AppText {
 }
 
 /// Flutter Material 图标到 DartNative Cupertino 图标的迁移映射。
-abstract final class Icons {
+abstract final class AppIcons {
   static const add = CupertinoIcons.plus;
   static const arrow_back_ios_new = CupertinoIcons.chevron_left;
   static const auto_stories_rounded = CupertinoIcons.book;

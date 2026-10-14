@@ -197,14 +197,14 @@ class _FeedCard extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                const Icon(Icons.place, size: 14, color: AppColors.textSecondary),
+                const Icon(AppIcons.place, size: 14, color: AppColors.textSecondary),
                 const SizedBox(width: 2),
                 Expanded(child: Text(post.location, style: AppText.caption)),
                 LikeButton(count: post.likes, target: (type: 'post', id: post.id)),
                 const SizedBox(width: 18),
-                CountIcon(Icons.chat_bubble_outline, post.comments),
+                CountIcon(AppIcons.chat_bubble_outline, post.comments),
                 const SizedBox(width: 18),
-                CountIcon(Icons.ios_share, post.shares),
+                CountIcon(AppIcons.ios_share, post.shares),
               ],
             ),
           ],

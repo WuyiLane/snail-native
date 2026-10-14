@@ -61,7 +61,7 @@ class _SearchPageState extends State<SearchPage> {
               child: const SizedBox(
                 width: 44,
                 height: _barHeight,
-                child: Center(child: Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary)),
+                child: Center(child: Icon(AppIcons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary)),
               ),
             ),
             Expanded(child: _field()),
@@ -136,7 +136,7 @@ class _SearchPageState extends State<SearchPage> {
         children: [
           const SizedBox(
             width: 34,
-            child: Center(child: Icon(Icons.search, size: 18, color: AppColors.textSecondary)),
+            child: Center(child: Icon(AppIcons.search, size: 18, color: AppColors.textSecondary)),
           ),
           Expanded(
             // 用原生 TextField 而不是 AdaptiveTextField：后者在 iOS 上走 CupertinoTextField，

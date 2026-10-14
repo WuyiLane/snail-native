@@ -173,7 +173,7 @@ class _EdgeButton extends StatelessWidget {
             height: size,
             alignment: Alignment.center,
             decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            child: Icon(Icons.chevron_right_rounded, size: size * 0.55, color: AppColors.textPrimary),
+            child: Icon(AppIcons.chevron_right_rounded, size: size * 0.55, color: AppColors.textPrimary),
           ),
         ],
       ),

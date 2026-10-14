@@ -53,10 +53,10 @@ class _PublishSheet extends StatelessWidget {
   final ValueChanged<PostType> onPick;
 
   static const _items = [
-    (PostType.note, Icons.edit_note_rounded),
-    (PostType.qa, Icons.question_answer_outlined),
-    (PostType.guide, Icons.bookmark_border_rounded),
-    (PostType.diary, Icons.menu_book_outlined),
+    (PostType.note, AppIcons.edit_note_rounded),
+    (PostType.qa, AppIcons.question_answer_outlined),
+    (PostType.guide, AppIcons.bookmark_border_rounded),
+    (PostType.diary, AppIcons.menu_book_outlined),
   ];
 
   @override
@@ -91,7 +91,7 @@ class _PublishSheet extends StatelessWidget {
             scaleFrom: 0.5,
             turnsFrom: -0.125,
             child: RoundIconButton(
-              icon: Icons.close,
+              icon: AppIcons.close,
               size: 44,
               background: AppColors.inputBg,
               onTap: onClose,

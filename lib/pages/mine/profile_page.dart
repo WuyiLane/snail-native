@@ -303,12 +303,12 @@ class _ProfileHeader extends StatelessWidget {
           width: double.infinity,
           child: Row(
             children: [
-              if (!isMe) RoundIconButton(icon: Icons.arrow_back_ios_new, onTap: onBack, background: iconBg),
+              if (!isMe) RoundIconButton(icon: AppIcons.arrow_back_ios_new, onTap: onBack, background: iconBg),
               const Spacer(),
               if (isMe)
-                RoundIconButton(icon: Icons.settings_outlined, onTap: onSettings, background: iconBg)
+                RoundIconButton(icon: AppIcons.settings_outlined, onTap: onSettings, background: iconBg)
               else
-                RoundIconButton(icon: Icons.more_horiz, onTap: () {}, background: iconBg),
+                RoundIconButton(icon: AppIcons.more_horiz, onTap: () {}, background: iconBg),
             ],
           ),
         ),
@@ -380,7 +380,7 @@ class _ProfileHeader extends StatelessWidget {
             onTap: onBack,
             child: const Padding(
               padding: EdgeInsets.only(right: 8),
-              child: Icon(Icons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
+              child: Icon(AppIcons.arrow_back_ios_new, size: 20, color: AppColors.textPrimary),
             ),
           ),
         ],
@@ -404,7 +404,7 @@ class _ProfileHeader extends StatelessWidget {
                     ),
                     child: const Row(
                       children: [
-                        Icon(Icons.search, size: 18, color: AppColors.textSecondary),
+                        Icon(AppIcons.search, size: 18, color: AppColors.textSecondary),
                         SizedBox(width: 6),
                         Text('搜索我的内容', style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                       ],
@@ -417,7 +417,7 @@ class _ProfileHeader extends StatelessWidget {
         GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: isMe ? onSettings : () {},
-          child: Icon(isMe ? Icons.settings_outlined : Icons.more_horiz, size: 24, color: AppColors.textPrimary),
+          child: Icon(isMe ? AppIcons.settings_outlined : AppIcons.more_horiz, size: 24, color: AppColors.textPrimary),
         ),
       ],
     );
