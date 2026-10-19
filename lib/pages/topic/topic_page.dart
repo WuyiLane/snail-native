@@ -194,7 +194,7 @@ class _TabPage extends StatelessWidget {
     // 原版用 primary 控制器接进 NestedScrollView；DartNative 的 ListView 没有 primary，各用各的控制器
     return ListView(
       controller: controller,
-      physics: const AlwaysScrollableScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
       children: [child],
     );

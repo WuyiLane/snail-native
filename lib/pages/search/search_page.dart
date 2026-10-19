@@ -86,6 +86,7 @@ class _SearchPageState extends State<SearchPage> {
     );
     final Widget body = _query.trim().isEmpty
         ? ListView(
+          physics: const ClampingScrollPhysics(),
             padding: const EdgeInsets.all(16),
             children: [
               const Text('热门搜索', style: AppText.sectionTitle),
@@ -110,7 +111,7 @@ class _SearchPageState extends State<SearchPage> {
           )
         : results.isEmpty
         ? const Center(child: Text('没有找到相关内容', style: AppText.caption))
-        : ListView(padding: const EdgeInsets.only(top: 12, bottom: 24), children: [Waterfall(results)]);
+        : ListView(physics: const ClampingScrollPhysics(), padding: const EdgeInsets.only(top: 12, bottom: 24), children: [Waterfall(results)]);
     return Scaffold(
       backgroundColor: Colors.white,
       // 显式 stretch：顶栏和列表都要满宽（DartNative 的 Column 不一定把子组件撑满，Flutter 里效果一样）

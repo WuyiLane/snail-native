@@ -110,6 +110,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _form() {
     return SafeArea(
       child: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 28),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

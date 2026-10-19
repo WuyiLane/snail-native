@@ -168,6 +168,7 @@ class _SettingsPageState extends State<SettingsPage> {
           fit: StackFit.expand,
           children: [
             ListView(
+              physics: const ClampingScrollPhysics(),
               // 底部留出悬浮的退出条
               padding: EdgeInsets.fromLTRB(
                 16,

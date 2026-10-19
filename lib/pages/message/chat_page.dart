@@ -47,6 +47,7 @@ class _ChatPageState extends State<ChatPage> {
         children: [
           Expanded(
             child: ListView.builder(
+              physics: const ClampingScrollPhysics(),
               padding: const EdgeInsets.all(16),
               itemCount: _messages.length,
               itemBuilder: (_, i) {

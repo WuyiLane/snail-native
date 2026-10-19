@@ -33,6 +33,7 @@ class TopicListPage extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
+        physics: const ClampingScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
         itemCount: Mock.topics.length,
         itemBuilder: (_, i) => Entrance(

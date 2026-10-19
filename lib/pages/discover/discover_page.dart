@@ -154,6 +154,7 @@ class _DiscoverBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const ClampingScrollPhysics(),
       padding: EdgeInsets.only(top: topPadding, bottom: ChickTabBar.space(context)),
       children: [
         Padding(

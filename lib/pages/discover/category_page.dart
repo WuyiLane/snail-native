@@ -35,6 +35,7 @@ class CategoryPage extends StatelessWidget {
         ),
       ),
       body: ListView(
+        physics: const ClampingScrollPhysics(),
         padding: const EdgeInsets.only(top: 12, bottom: 24),
         children: [
           // 一个分类下 mock 数据不多，重复两遍把瀑布流填满

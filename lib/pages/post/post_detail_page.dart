@@ -210,6 +210,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
               fit: StackFit.expand,
               children: [
                 CustomScrollView(
+                  physics: const ClampingScrollPhysics(),
                   controller: _scroll,
                   slivers: [
                     SliverToBoxAdapter(
@@ -415,6 +416,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
           final all = _allComments;
           // DartNative 没有 ListView.separated：每条评论之间插分隔线
           return ListView(
+            physics: const ClampingScrollPhysics(),
             controller: controller,
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
             children: [

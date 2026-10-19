@@ -204,6 +204,7 @@ class _HomePageState extends State<HomePage> {
           onVerticalDragUpdate: _atTop ? _onDragUpdate : null,
           onVerticalDragEnd: _atTop ? _onDragEnd : null,
           child: ListView(
+            physics: const ClampingScrollPhysics(),
             controller: _scroll,
             padding: EdgeInsets.only(top: top + 12, bottom: ChickTabBar.space(context)),
             children: [
@@ -284,6 +285,7 @@ class _HomePageState extends State<HomePage> {
         height: _destH,
         // DartNative 没有 ListView.separated，间距放在每一项右边
         child: ListView.builder(
+          physics: const ClampingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           itemCount: _destinations.length,
@@ -526,6 +528,7 @@ class _TopicBannerState extends State<_TopicBanner> {
           // 比卡片高一点：缩小的邻卡上下各留了 10
           height: 170,
           child: FastList(
+            physics: const ClampingScrollPhysics(),
             controller: _list,
             scrollDirection: Axis.horizontal,
             itemCount: widget.topics.length,

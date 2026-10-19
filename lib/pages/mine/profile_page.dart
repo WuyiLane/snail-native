@@ -193,7 +193,7 @@ class _TabContent extends StatelessWidget {
       color: Colors.white,
       child: ListView(
         controller: controller,
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         padding: EdgeInsets.only(bottom: bottomPadding),
         children: [
           // 顶部留空用占位块而不是 padding.top：头部折叠量直接取滚动偏移，

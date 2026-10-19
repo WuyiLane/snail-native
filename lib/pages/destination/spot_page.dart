@@ -60,6 +60,7 @@ class _SpotPageState extends State<SpotPage> {
     // 头图就是列表第一项（pin 模式下头图本来就跟着内容 1:1 上移），收起的最后 56px 里白色顶栏淡入盖住它，
     // 收完后顶栏吸住、正文从它底下滚过去；返回键一直浮在左上角
     final list = ListView(
+      physics: const ClampingScrollPhysics(),
       controller: _scroll,
       padding: EdgeInsets.zero,
       children: [

@@ -140,15 +140,17 @@ class _MessagePageState extends State<MessagePage> {
     final pad = EdgeInsets.only(bottom: ChickTabBar.space(context));
     switch (_tab) {
       case 0:
-        return ListView(padding: pad, children: [for (final (i, n) in Mock.notices.indexed) _row(i, _NoticeRow(n))]);
+        return ListView(physics: const ClampingScrollPhysics(), padding: pad, children: [for (final (i, n) in Mock.notices.indexed) _row(i, _NoticeRow(n))]);
       case 1:
         return ListView(
+          physics: const ClampingScrollPhysics(),
           padding: pad,
           children: [for (final (i, c) in Mock.commentNotices.indexed) _row(i, _CommentNoticeRow(c))],
         );
       case 2:
         // 原版 ListView.builder；DartNative 里这一页用 builder 行建不出来（真机上空白），和另外三页一样用 children
         return ListView(
+          physics: const ClampingScrollPhysics(),
           padding: pad,
           children: [
             for (final (i, c) in _chats.indexed)
@@ -166,6 +168,7 @@ class _MessagePageState extends State<MessagePage> {
         );
       default:
         return ListView(
+          physics: const ClampingScrollPhysics(),
           padding: pad,
           children: [for (final (i, n) in Mock.serviceNotices.indexed) _row(i, _NoticeRow(n))],
         );

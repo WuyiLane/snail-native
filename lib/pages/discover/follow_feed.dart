@@ -88,6 +88,7 @@ class _FollowFeedState extends State<FollowFeed> {
     // 药丸和列表放在同一个滚动区里，整体才能从毛玻璃栏底下滚过去。
     // 原版用 SliverAnimatedList 做插入动画（DartNative 没有）：普通列表，新插入的那条单独播撑开动画
     return ListView(
+      physics: const ClampingScrollPhysics(),
       controller: _scroll,
       padding: EdgeInsets.only(top: widget.topPadding, bottom: ChickTabBar.space(context)),
       children: [

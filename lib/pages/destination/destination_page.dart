@@ -81,6 +81,7 @@ class _DestinationPageState extends State<DestinationPage> {
           ),
           Expanded(
             child: GridView.builder(
+              physics: const ClampingScrollPhysics(),
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

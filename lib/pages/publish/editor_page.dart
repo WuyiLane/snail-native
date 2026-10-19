@@ -76,11 +76,13 @@ class _EditorPageState extends State<EditorPage> {
         ],
       ),
       body: ListView(
+        physics: const ClampingScrollPhysics(),
         padding: const EdgeInsets.all(16),
         children: [
           SizedBox(
             height: 96,
             child: ListView.builder(
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: widget.images.length + 1,
               itemBuilder: (_, i) {
