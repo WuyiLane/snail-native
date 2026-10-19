@@ -62,9 +62,13 @@ workflows:
           STATUS=0
           dn build ios --release --no-codesign --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY || STATUS=$?
           if [ "$STATUS" != "0" ]; then
-            echo "=== dn build 失败(退出码 $STATUS)，xcodebuild 日志中的错误 ==="
-            ls -la /tmp/xcodebuild_logs/ || true
-            grep -h -n -i -E "error:|requires a development team|code ?sign" /tmp/xcodebuild_logs/*.log | head -60 || true
+            echo "=== dn build 失败(退出码 $STATUS)，加 -v 重跑一遍，取 xcodebuild 的真实错误 ==="
+            xcodebuild -version || true
+            dn -v build ios --release --no-codesign --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY > /tmp/dn_verbose.log 2>&1 || true
+            wc -l /tmp/dn_verbose.log
+            grep -n -i -E "error:|requires a development team|signing for|provisioning" /tmp/dn_verbose.log | head -60 || true
+            echo "--- 详细日志最后 60 行 ---"
+            tail -60 /tmp/dn_verbose.log
           fi
           exit $STATUS
       # .ipa 其实就是把 Runner.app 放进 Payload 目录再 zip，和 Flutter 版 chirp_trip 的做法一致
