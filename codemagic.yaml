@@ -56,7 +56,17 @@ workflows:
       - name: 安装依赖
         script: dn pub get
       - name: 编译 iOS 未签名包
-        script: dn build ios --release --no-codesign --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY
+        # 失败时 dn 只打印笼统的“需要 Development Team”，真正的原因在 xcodebuild 日志里，
+        # 所以先放行失败，把日志里的 error 行打出来，再用原退出码结束
+        script: |
+          STATUS=0
+          dn build ios --release --no-codesign --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY || STATUS=$?
+          if [ "$STATUS" != "0" ]; then
+            echo "=== dn build 失败(退出码 $STATUS)，xcodebuild 日志中的错误 ==="
+            ls -la /tmp/xcodebuild_logs/ || true
+            grep -h -n -i -E "error:|requires a development team|code ?sign" /tmp/xcodebuild_logs/*.log | head -60 || true
+          fi
+          exit $STATUS
       # .ipa 其实就是把 Runner.app 放进 Payload 目录再 zip，和 Flutter 版 chirp_trip 的做法一致
       # 产物是未签名的 ipa，下载后用 Sideloadly / 爱思助手 拿自己的 Apple ID 签名再装
       - name: 打成 ipa
