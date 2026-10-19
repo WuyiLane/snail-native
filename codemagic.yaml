@@ -57,6 +57,16 @@ workflows:
         script: dn pub get
       - name: 编译 iOS 未签名包
         script: dn build ios --release --no-codesign --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY
+      # .ipa 其实就是把 Runner.app 放进 Payload 目录再 zip，和 Flutter 版 chirp_trip 的做法一致
+      # 产物是未签名的 ipa，下载后用 Sideloadly / 爱思助手 拿自己的 Apple ID 签名再装
+      - name: 打成 ipa
+        script: |
+          APP=$(find build/ios/iphoneos -maxdepth 2 -name "*.app" -type d | head -1)
+          echo "使用 $APP"
+          mkdir -p Payload
+          cp -r "$APP" Payload/
+          zip -qr chirp_trip_native.ipa Payload
     artifacts:
+      - chirp_trip_native.ipa
       - build/ios/iphoneos/**/*.app
       - /tmp/xcodebuild_logs/*.log
