@@ -87,7 +87,7 @@ workflows:
 
   # 已签名的 iOS 包：用 Codemagic 里上传的证书和描述文件签名，产物是能直接装的 .ipa。
   # 准备：Codemagic 网页 Teams > Personal account > Code signing identities > iOS certificates / iOS provisioning profiles，
-  # 上传 .p12（填密码）和 .mobileprovision，「Reference name」与下面保持一致（目前证书和描述文件的名字都是「禹王」）。
+  # 上传 .p12（填密码）和 .mobileprovision，「Reference name」与下面保持一致（目前证书和描述文件的名字都是「禹 王」）。
   # 描述文件的 Bundle ID 必须是 uni.io.jpgoodbuy，并且包含你要装的设备（Ad Hoc / Development）。
   ios-signed:
     name: iOS 签名包
@@ -98,9 +98,9 @@ workflows:
         - dartnative
       ios_signing:
         certificates:
-          - 禹王
+          - "禹 王"
         provisioning_profiles:
-          - 禹王
+          - "禹 王"
     scripts:
       - name: 安装 DartNative SDK
         script: |
