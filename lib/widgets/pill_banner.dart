@@ -1,4 +1,4 @@
-import 'package:dartnative/dartnative.dart';
+import 'package:dartnative/dartnative.dart' hide Interval;
 
 import '../app/theme.dart';
 import '../utils/curves.dart';

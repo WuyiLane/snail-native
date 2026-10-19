@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:dartnative/dartnative.dart';
+import 'package:dartnative/dartnative.dart' hide Interval;
 
 import '../utils/curves.dart';
 
