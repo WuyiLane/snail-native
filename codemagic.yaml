@@ -84,3 +84,42 @@ workflows:
       - chirp_trip_native.ipa
       - build/ios/iphoneos/**/*.app
       - /tmp/xcodebuild_logs/*.log
+
+  # 已签名的 iOS 包：用 Codemagic 里上传的证书和描述文件签名，产物是能直接装的 .ipa。
+  # 准备：Codemagic 网页 Teams > Personal account > Code signing identities > iOS certificates / iOS provisioning profiles，
+  # 上传 .p12（填密码）和 .mobileprovision，「Reference name」分别填 chirp_trip_cert 和 chirp_trip_profile（与下面保持一致）。
+  # 描述文件的 Bundle ID 必须是 com.chirptrip.chirpTrip，并且包含你要装的设备（Ad Hoc / Development）。
+  ios-signed:
+    name: iOS 签名包
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    environment:
+      groups:
+        - dartnative
+      ios_signing:
+        certificates:
+          - chirp_trip_cert
+        provisioning_profiles:
+          - chirp_trip_profile
+    scripts:
+      - name: 安装 DartNative SDK
+        script: |
+          curl -fsSL https://cdn.dartnative.com/install.sh | sh
+          echo "PATH=$HOME/zero/bin:$PATH" >> $CM_ENV
+      - name: 环境检查
+        script: |
+          dn --version
+          xcodebuild -version
+      - name: 安装依赖
+        script: dn pub get
+      # 把证书导进临时钥匙串，并把描述文件写进 Xcode 工程；同时生成 /Users/builder/export_options.plist
+      - name: 配置签名
+        script: |
+          keychain initialize
+          keychain add-certificates
+          xcode-project use-profiles
+      - name: 编译 iOS 签名包
+        script: dn build ipa --release --export-options-plist=/Users/builder/export_options.plist --dart-define=DN_LICENSE_KEY=$DN_LICENSE_KEY
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
