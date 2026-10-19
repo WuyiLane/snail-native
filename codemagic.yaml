@@ -87,8 +87,8 @@ workflows:
 
   # 已签名的 iOS 包：用 Codemagic 里上传的证书和描述文件签名，产物是能直接装的 .ipa。
   # 准备：Codemagic 网页 Teams > Personal account > Code signing identities > iOS certificates / iOS provisioning profiles，
-  # 上传 .p12（填密码）和 .mobileprovision，「Reference name」分别填 chirp_trip_cert 和 chirp_trip_profile（与下面保持一致）。
-  # 描述文件的 Bundle ID 必须是 com.chirptrip.chirpTrip，并且包含你要装的设备（Ad Hoc / Development）。
+  # 上传 .p12（填密码）和 .mobileprovision，「Reference name」与下面保持一致（目前证书和描述文件的名字都是「禹王」）。
+  # 描述文件的 Bundle ID 必须是 uni.io.jpgoodbuy，并且包含你要装的设备（Ad Hoc / Development）。
   ios-signed:
     name: iOS 签名包
     instance_type: mac_mini_m2
@@ -98,9 +98,9 @@ workflows:
         - dartnative
       ios_signing:
         certificates:
-          - chirp_trip_cert
+          - 禹王
         provisioning_profiles:
-          - chirp_trip_profile
+          - 禹王
     scripts:
       - name: 安装 DartNative SDK
         script: |
