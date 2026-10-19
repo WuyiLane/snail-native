@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 
 import 'package:dartnative/dartnative.dart';
 
@@ -300,7 +299,7 @@ class FrostedBar extends StatelessWidget {
       height: top + barHeight,
       // 和页面底色一个灰调，只是半透明 + 模糊，内容滚过去时能透出来。
       // DartNative 只有 iOS 能真模糊背后内容，安卓上透过去是清楚的，底色加厚
-      color: AppColors.pageBg.withValues(alpha: Platform.isIOS ? 0.82 : 0.96),
+      color: AppColors.pageBg.withValues(alpha: kIosBackdropBlur ? 0.82 : 0.96),
       padding: EdgeInsets.only(top: top),
       // 标题居中，返回键和右侧操作各压一边（DartNative 的 Stack 要 expand 才铺满）
       child: Stack(
@@ -340,7 +339,7 @@ class FrostedBar extends StatelessWidget {
           left: 0,
           right: 0,
           top: 0,
-          child: Platform.isIOS
+          child: kIosBackdropBlur
               ? ClipRect(
                   child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24), child: bar),
                 )

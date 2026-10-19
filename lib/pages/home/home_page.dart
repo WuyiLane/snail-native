@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 import 'dart:math' as math;
 
 import 'package:dartnative/dartnative.dart';
@@ -622,10 +621,10 @@ class _Frosted extends StatelessWidget {
   Widget build(BuildContext context) {
     final box = Container(
       height: height,
-      color: Colors.white.withValues(alpha: Platform.isIOS ? 0.78 : 0.94),
+      color: Colors.white.withValues(alpha: kIosBackdropBlur ? 0.78 : 0.94),
       child: child,
     );
-    if (!Platform.isIOS) return box;
+    if (!kIosBackdropBlur) return box;
     return ClipRect(
       child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24), child: box),
     );

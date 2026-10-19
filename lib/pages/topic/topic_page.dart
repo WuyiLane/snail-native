@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 import 'dart:math' as math;
 
 import 'package:dartnative/dartnative.dart';
@@ -375,7 +374,7 @@ class _TopicHeader {
 
   /// 毛玻璃底：DartNative 的 BackdropFilter 只有 iOS 能模糊背后的内容；安卓上透过去是清楚的，白底加厚（同首页、发现页）
   static Widget _frosted() {
-    if (!Platform.isIOS) return ColoredBox(color: Colors.white.withValues(alpha: 0.94));
+    if (!kIosBackdropBlur) return ColoredBox(color: Colors.white.withValues(alpha: 0.94));
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),

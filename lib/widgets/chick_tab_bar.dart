@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 
 import 'package:dartnative/dartnative.dart';
 
@@ -71,7 +70,7 @@ class ChickTabBar extends StatelessWidget {
     // DartNative 安卓上 DecoratedBox 的底色画不出来、阴影是按 view 轮廓画的 elevation 阴影（没底色就没阴影），
     // 所以底色、圆角、阴影放在同一个 Container 上。Flutter 版阴影的 BlurStyle.outer 这里没有
     const shadow = [BoxShadow(color: Color(0x1F000000), blurRadius: 20, offset: Offset(0, 6))];
-    final capsule = Platform.isIOS
+    final capsule = kIosBackdropBlur
         ? Container(
             height: height,
             decoration: BoxDecoration(borderRadius: radius, boxShadow: shadow),

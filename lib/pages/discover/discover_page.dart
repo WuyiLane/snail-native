@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 
 import 'package:dartnative/dartnative.dart';
 
@@ -79,7 +78,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
     final bar = Container(
       height: height,
       // DartNative 只有 iOS 能真模糊背后内容；安卓上透过去的内容是清楚的，白底加厚
-      color: Colors.white.withValues(alpha: Platform.isIOS ? 0.78 : 0.94),
+      color: Colors.white.withValues(alpha: kIosBackdropBlur ? 0.78 : 0.94),
       padding: EdgeInsets.fromLTRB(16, top + 12, 16, 8),
       child: Row(
         children: [
@@ -96,7 +95,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
         ],
       ),
     );
-    if (!Platform.isIOS) return bar;
+    if (!kIosBackdropBlur) return bar;
     return ClipRect(
       child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24), child: bar),
     );

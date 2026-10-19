@@ -255,7 +255,7 @@ class _SettingsPageState extends State<SettingsPage> {
       '退出登录',
       style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.red),
     );
-    if (Platform.isIOS) {
+    if (kIosBackdropBlur) {
       return Container(
         decoration: BoxDecoration(borderRadius: radius, boxShadow: shadow),
         child: ClipRRect(

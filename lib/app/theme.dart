@@ -1,5 +1,10 @@
 import 'package:dartnative/dartnative.dart';
 
+/// iOS 上是否用 BackdropFilter 做磨砂。iOS 真机（DartNative 1.3.0）实测它没有模糊背后的内容，
+/// 只剩一层灰白蒙板，底下的字和图都清楚地透出来、和上面的字叠在一起，所以先关掉，iOS 也用安卓那套加厚的白底。
+/// 以后 BackdropFilter 在 iOS 上修好了，把它改成 `Platform.isIOS`（并引入 dart:io）就能恢复。
+const kIosBackdropBlur = false;
+
 /// 应用的颜色设计令牌。
 abstract final class AppColors {
   static const primary = Color(0xFFFAD524);
